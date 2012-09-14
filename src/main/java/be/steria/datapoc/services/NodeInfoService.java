@@ -1,7 +1,5 @@
 package be.steria.datapoc.services;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.List;
 
 import javax.jws.WebParam;
@@ -13,5 +11,7 @@ public interface NodeInfoService {
 	public List<String> getNodeList();
 	public String getAddress(@WebParam(name="nodeId")String nodeId);
 	public String getCentralNodeId();
-	public void reloadInfo() throws FileNotFoundException, IOException;
+	public void reloadFile() throws Exception;
+	public void configure(@WebParam(name="centralNode")int centralNode, 
+			@WebParam(name="nodeAddresses")List<String> nodeAddresses) throws Exception;
 }
